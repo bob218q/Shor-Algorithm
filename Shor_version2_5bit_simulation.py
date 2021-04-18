@@ -37,6 +37,7 @@ def cmod(Quantum_program_object,Circuit_name,Quantum_register_name,a):
 	qc = Quantum_program_object.get_circuit(Circuit_name)
 	qr = Quantum_program_object.get_quantum_register(Quantum_register_name)
 
+	
 # Construct unitary based on a
 	if a == 2:
 		qc.cswap(qr[4],qr[3],qr[2])
@@ -70,6 +71,7 @@ def cmod(Quantum_program_object,Circuit_name,Quantum_register_name,a):
 		qc.cx(qr[4],qr[1])
 		qc.cx(qr[4],qr[0])
 
+		
 #--------------------------------------------------------------------------------------------------------------
 # The function to compute QFT
 # Input : Circuit, quantum bits, and number of quantum bits
@@ -84,12 +86,14 @@ def qft(Quantum_program_object,Circuit_name,Quantum_register_name,Smallest_Quant
 		for k in range(j):
 			qc.cu1(math.pi/float(2**(j-k)), qr[s+j], qr[s+k])
 		qc.h(qr[s+j])
+		
 
 #--------------------------------------------------------------------------------------------------------------
 # The function to find period using the Quantum computer
 # Input : a and N for which the period is to be computed.
 # Output : period r of the function a^x mod N
 #--------------------------------------------------------------------------------------------------------------	
+
 def period(a,N):
 	global Ran_Quantum_period_finding
 	Ran_Quantum_period_finding = 1
@@ -164,13 +168,16 @@ def period(a,N):
 	#print(r)
 	return r
 
+
 #--------------------------------------------------------------------------------------------------------------
 # The main function to compute factors
 # Input : The number to be factored, N
 # Output : Factors of the number
 #--------------------------------------------------------------------------------------------------------------	
+
 def Factorize_N(N):
 	factors = [0,0]
+	
 #--------------------------------------------------------------------------------------------------------------
 # Step 1 : Determine the number of bits based on N; n = [log2(N)]
 #--------------------------------------------------------------------------------------------------------------
