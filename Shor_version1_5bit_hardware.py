@@ -9,6 +9,8 @@ import math
 from random import randint
 import control_unitaries
 
+
+
 #--------------------------------------------------------------------------------------------------------------
 # global variables  
 #--------------------------------------------------------------------------------------------------------------
@@ -23,11 +25,14 @@ def gcd(x,y):
         (x, y) = (y, x % y)
     return x
 
+
 #--------------------------------------------------------------------------------------------------------------
 # The function to compute QFT
 # Input : Circuit, quantum bits, and number of quantum bits
 # Output : None. Circuit is created and saved
 #--------------------------------------------------------------------------------------------------------------	
+
+
 def qft(Quantum_program_object,Circuit_name,Quantum_register_name,Smallest_Quantum_register_number,Size_of_QFT):
 	# Get the circuit and the quantum register by name
 	qc = Quantum_program_object.get_circuit(Circuit_name)
@@ -57,11 +62,13 @@ def period(a,N):
 # and the Classical Register "cr"
 	qc = qp.create_circuit('Period_Finding', [qr], [cr])
 
+	
 # Get the circuit and the registers by name 
 	Shor1 = qp.get_circuit('Period_Finding')
 	Q_reg = qp.get_quantum_register('qr')
 	C_reg = qp.get_classical_register('cr')
 
+	
 # Create the circuit for period finding
 # Initialize qr[0] to |1> and create a superposition on the top 8 qubits
 	Shor1.x(Q_reg[0])
@@ -74,6 +81,7 @@ def period(a,N):
 # Reinitialize to |0>
 	Shor1.reset(Q_reg[2])
 
+	
 # Step two : apply 11**2 mod 15
 	Shor1.h(Q_reg[2])
 # Controlled Identity to remaining gates which is equivalent to doing nothing
@@ -83,6 +91,7 @@ def period(a,N):
 	Shor1.measure(Q_reg[2],C_reg[1])	
 # Reinitialize to |0>
 	Shor1.reset(Q_reg[2])
+	
 
 # Step three : apply 11 mod 15
 	Shor1.h(Q_reg[2])
@@ -96,6 +105,7 @@ def period(a,N):
 		Shor1.u1(pi/4.0,Q_reg[2])
 	Shor1.h(Q_reg[2])
 	Shor1.measure(Q_reg[2],C_reg[2])	
+	
 	
 	# Run the circuit
 	while True:
