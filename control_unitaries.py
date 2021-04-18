@@ -22,16 +22,21 @@ def C_2mod15(Quantum_program_object,Circuit_name,Quantum_register_name,Control_b
 	qc = Quantum_program_object.get_circuit(Circuit_name)
 	qr = Quantum_program_object.get_quantum_register(Quantum_register_name)
 	
+	
 	Control_bit_number = Control_bit_number
+	
 	
 	# Implement controlled swap on qr[3] and qr[2] 
 	Basic_gates.CSWAP(Quantum_program_object,Circuit_name,Quantum_register_name,Control_bit_number,[3,2])
 	
+	
 	# Implement controlled swap on qr[2] and qr[1] 
 	Basic_gates.CSWAP(Quantum_program_object,Circuit_name,Quantum_register_name,Control_bit_number,[2,1])
 	
+	
 	# Implement controlled swap on qr[1] and qr[0] 
 	Basic_gates.CSWAP(Quantum_program_object,Circuit_name,Quantum_register_name,Control_bit_number,[1,0])
+	
 	
 	# Return the program object 
 	return Quantum_program_object
@@ -49,16 +54,21 @@ def C_7mod15(Quantum_program_object,Circuit_name,Quantum_register_name,Control_b
 	qc = Quantum_program_object.get_circuit(Circuit_name)
 	qr = Quantum_program_object.get_quantum_register(Quantum_register_name)
 
+	
 	Control_bit_number = Control_bit_number
+	
 	
 	# Implement controlled swap on qr[1] and qr[0] 
 	Basic_gates.CSWAP(Quantum_program_object,Circuit_name,Quantum_register_name,Control_bit_number,[1,0])
 	
+	
 	# Implement controlled swap on qr[2] and qr[1] 
 	Basic_gates.CSWAP(Quantum_program_object,Circuit_name,Quantum_register_name,Control_bit_number,[2,1])
 	
+	
 	# Implement controlled swap on qr[3] and qr[2] 
 	Basic_gates.CSWAP(Quantum_program_object,Circuit_name,Quantum_register_name,Control_bit_number,[3,2])
+	
 	
 	# Implement CX on all four qubits
 	qc.cx(Control_bit_number,qr[3])
