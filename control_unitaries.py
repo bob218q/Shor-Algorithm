@@ -8,6 +8,7 @@
 from qiskit import QuantumProgram
 import Qconfig
 import Basic_gates
+
 # TODO make it more generalized
 #--------------------------------------------------------------------------------------------------------------
 # The control unitary for 2mod15 on 4 quantum qubits
@@ -114,6 +115,7 @@ def C_8mod15(Quantum_program_object,Circuit_name,Quantum_register_name,Control_b
 # Circuit implemented - CSwap(Q[2],Q[0])->CSwap(Q[3],Q[1])->CX on all 4 qubits
 #--------------------------------------------------------------------------------------------------------------
 def C_11mod15(Quantum_program_object,Circuit_name,Quantum_register_name,Control_bit_number):
+	
 	
 	# Get the circuit and the quantum register by name
 	qc = Quantum_program_object.get_circuit(Circuit_name)
