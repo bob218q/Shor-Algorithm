@@ -8,7 +8,6 @@
 from qiskit import QuantumProgram
 import Qconfig
 
-
 #--------------------------------------------------------------------------------------------------------------
 # The CSWAP gate
 # Input : Quantum program object, the Circuit name, the quantum register name, control bit number and target
@@ -16,6 +15,7 @@ import Qconfig
 # Output : Quantum_program_object with the relevant connections
 # Circuit implemented - CSWAP
 #--------------------------------------------------------------------------------------------------------------
+
 def CSWAP(Quantum_program_object,Circuit_name,Quantum_register_name,Control_bit_number,Target_bit_numbers):
 	
 	# Get the circuit and the quantum register by name
@@ -28,7 +28,6 @@ def CSWAP(Quantum_program_object,Circuit_name,Quantum_register_name,Control_bit_
 	Target_2 = Target_bit_numbers[1]
 	
 	# Implement CSWAP using 3 CCNOT implementations
-	
 	
 	
 	# Implement CCNOT on Control,Target_1 and Target_2 using decomposition given by Nelson and Chuang
@@ -67,6 +66,7 @@ def CSWAP(Quantum_program_object,Circuit_name,Quantum_register_name,Control_bit_
 	qc.t(qr[Control])
 	qc.s(qr[Target_2])
 	
+	
 	# Implement CCNOT on Control,Target_1 and Target_2 using decomposition given by Nelson and Chuang
 	qc.h(qr[Target_2])
 	qc.cx(qr[Target_1],qr[Target_2])
@@ -97,6 +97,7 @@ def CSWAP(Quantum_program_object,Circuit_name,Quantum_register_name,Control_bit_
 # Circuit implemented - CCNOT
 #--------------------------------------------------------------------------------------------------------------
 def CCNOT(Quantum_program_object,Circuit_name,Quantum_register_name,Control_bit_numbers,Target_bit_number):
+	
 	
 	# Get the circuit and the quantum register by name
 	qc = Quantum_program_object.get_circuit(Circuit_name)
