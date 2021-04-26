@@ -1,5 +1,6 @@
 from math import sqrt
 
+
 def sieve_of_eratosthenes(n):
     primes = range(3, n + 1, 2) # primes above 2 must be odd so start at three and increase by 2
     for base in xrange(len(primes)):
@@ -13,6 +14,7 @@ def sieve_of_eratosthenes(n):
     sieve=filter(None, primes)
     return  sieve
 
+
 def prime_factor(sieve,n):
     p_f = []
     for prime in sieve:
@@ -22,6 +24,7 @@ def prime_factor(sieve,n):
     if n > 1:
         p_f.append(n)
     return p_f
+
 
 def p_fctr_exp(s,n):
     primes = prime_factor(s,n)
@@ -34,6 +37,7 @@ def p_fctr_exp(s,n):
         exp.append(e)
     return exp
 
+
 def checkEqual1(iterator):
     iterator = iter(iterator)
     try:
@@ -41,6 +45,7 @@ def checkEqual1(iterator):
     except StopIteration:
         return True
     return all(first == rest for rest in iterator)
+
 
 num = input("Enter a number: ")
 sieve = sieve_of_eratosthenes(num)
