@@ -38,7 +38,6 @@ def C_2mod15(Quantum_program_object,Circuit_name,Quantum_register_name,Control_b
 	# Implement controlled swap on qr[1] and qr[0] 
 	Basic_gates.CSWAP(Quantum_program_object,Circuit_name,Quantum_register_name,Control_bit_number,[1,0])
 	
-	
 	# Return the program object 
 	return Quantum_program_object
 
