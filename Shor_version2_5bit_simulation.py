@@ -26,7 +26,6 @@ def gcd(x,y):
     while y != 0:
         (x, y) = (y, x % y)
     return x
-
 #--------------------------------------------------------------------------------------------------------------
 # The function to construct the unitary based on a
 # Input : Quantum program object, the Circuit name and the quantum register name, and a
@@ -37,8 +36,7 @@ def cmod(Quantum_program_object,Circuit_name,Quantum_register_name,a):
 	qc = Quantum_program_object.get_circuit(Circuit_name)
 	qr = Quantum_program_object.get_quantum_register(Quantum_register_name)
 
-	
-# Construct unitary based on a
+	# Construct unitary based on a
 	if a == 2:
 		qc.cswap(qr[4],qr[3],qr[2])
 		qc.cswap(qr[4],qr[2],qr[1])
@@ -71,7 +69,6 @@ def cmod(Quantum_program_object,Circuit_name,Quantum_register_name,a):
 		qc.cx(qr[4],qr[1])
 		qc.cx(qr[4],qr[0])
 
-		
 #--------------------------------------------------------------------------------------------------------------
 # The function to compute QFT
 # Input : Circuit, quantum bits, and number of quantum bits
@@ -87,7 +84,6 @@ def qft(Quantum_program_object,Circuit_name,Quantum_register_name,Smallest_Quant
 			qc.cu1(math.pi/float(2**(j-k)), qr[s+j], qr[s+k])
 		qc.h(qr[s+j])
 		
-
 #--------------------------------------------------------------------------------------------------------------
 # The function to find period using the Quantum computer
 # Input : a and N for which the period is to be computed.
@@ -167,7 +163,6 @@ def period(a,N):
 	r = int((2**3)/l)
 	#print(r)
 	return r
-
 
 #--------------------------------------------------------------------------------------------------------------
 # The main function to compute factors
@@ -252,7 +247,6 @@ if __name__ == '__main__':
 		Total_counts.append(Counts)
 		Counts = 0
 		Ran_Quantum_period_finding = 0
-
 
 if m == 99:
 	wb = xlsxwriter.Workbook('log.xlsx')
