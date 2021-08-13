@@ -1,7 +1,6 @@
 #--------------------------------------------------------------------------------------------------------------
 # This module contains basic gates that can be used while developing circuits on IBM QExperience 
 #--------------------------------------------------------------------------------------------------------------
-
 #--------------------------------------------------------------------------------------------------------------
 # Import necessary modules 
 #--------------------------------------------------------------------------------------------------------------
@@ -28,7 +27,6 @@ def CSWAP(Quantum_program_object,Circuit_name,Quantum_register_name,Control_bit_
 	Target_2 = Target_bit_numbers[1]
 	
 	# Implement CSWAP using 3 CCNOT implementations
-	
 	
 	# Implement CCNOT on Control,Target_1 and Target_2 using decomposition given by Nelson and Chuang
 	qc.h(qr[Target_2])
@@ -88,7 +86,6 @@ def CSWAP(Quantum_program_object,Circuit_name,Quantum_register_name,Control_bit_
 	# Return the program object 
 	return Quantum_program_object
 
-
 #--------------------------------------------------------------------------------------------------------------
 # The CCNOT gate
 # Input : Quantum program object, the Circuit name, the quantum register name, control bit numbers and target
@@ -145,7 +142,6 @@ def CCNOT(Quantum_program_object,Circuit_name,Quantum_register_name,Control_bit_
 	qc.cx(qr[Control_1],qr[Control_2])
 	qc.t(qr[Control_1])
 	qc.s(qr[Control_2])
-	
 	
 	
 	# Return the program object 
