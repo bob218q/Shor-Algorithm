@@ -9,8 +9,6 @@ import math
 from random import randint
 import control_unitaries
 
-
-
 #--------------------------------------------------------------------------------------------------------------
 # global variables  
 #--------------------------------------------------------------------------------------------------------------
@@ -25,13 +23,11 @@ def gcd(x,y):
         (x, y) = (y, x % y)
     return x
 
-
 #--------------------------------------------------------------------------------------------------------------
 # The function to compute QFT
 # Input : Circuit, quantum bits, and number of quantum bits
 # Output : None. Circuit is created and saved
 #--------------------------------------------------------------------------------------------------------------	
-
 
 def qft(Quantum_program_object,Circuit_name,Quantum_register_name,Smallest_Quantum_register_number,Size_of_QFT):
 	# Get the circuit and the quantum register by name
@@ -68,7 +64,6 @@ def period(a,N):
 	Q_reg = qp.get_quantum_register('qr')
 	C_reg = qp.get_classical_register('cr')
 
-	
 # Create the circuit for period finding
 # Initialize qr[0] to |1> and create a superposition on the top 8 qubits
 	Shor1.x(Q_reg[0])
@@ -105,7 +100,6 @@ def period(a,N):
 		Shor1.u1(pi/4.0,Q_reg[2])
 	Shor1.h(Q_reg[2])
 	Shor1.measure(Q_reg[2],C_reg[2])	
-	
 	
 	# Run the circuit
 	while True:
